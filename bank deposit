@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+struct bank_account
+{
+    int account_number;
+    int balance;
+};
+
+void deposit_money(bank_account &account_ref, int deposit_amount)
+{
+    account_ref.balance = account_ref.balance + deposit_amount;
+
+    cout << "Balance inside function (reference): "
+         << account_ref.balance << endl;
+}
+
+int main()
+{
+    bank_account account;
+    int deposit_amount;
+
+    cin >> account.account_number;
+    cin >> account.balance;
+    cin >> deposit_amount;
+
+    cout << "Balance before call (main): "
+         << account.balance << endl;
+
+    deposit_money(account, deposit_amount);
+
+    cout << "Balance after call (main): "
+         << account.balance << endl;
+
+    return 0;
+}
